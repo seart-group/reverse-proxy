@@ -2,8 +2,8 @@
 
 [ "$UID" -eq 0 ] || exec sudo bash "$0" "$@"
 
-mkdir -r ssl/seart-dl4se.si.usi.ch
-mkdir -r ssl/seart-ghs.si.usi.ch
+mkdir -p ssl/seart-dl4se.si.usi.ch
+mkdir -p ssl/seart-ghs.si.usi.ch
 
 cp /etc/letsencrypt/live/seart-dl4se.si.usi.ch/cert.pem \
     ssl/seart-dl4se.si.usi.ch/cert.pem
