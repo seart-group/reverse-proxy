@@ -10,6 +10,12 @@ Before deploying the project for the first time, make sure that a dedicated `doc
 docker network create reverse-proxy-network
 ```
 
+Then copy the certbot-issued SSL certificates to the bind mount folder using the provided script:
+
+```bash
+./letsencrypt.sh
+```
+
 ---   
 
 ### References
