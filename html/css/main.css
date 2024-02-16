@@ -47,3 +47,13 @@ a[target="_blank"] {
 .logo:hover .logo-text {
     color: var(--bs-navbar-hover-color)!important;
 }
+
+.support {
+    text-decoration: none!important;
+    color: rgba(var(--bs-emphasis-color-rgb), 0.65)!important;
+    cursor: pointer!important;
+}
+
+.support:hover {
+    color: rgba(var(--bs-emphasis-color-rgb), 0.8)!important;
+}
