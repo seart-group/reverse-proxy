@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>{{ title }}</title>
+        <meta charset="utf-8">
+        <meta name="author" content="Ozren Dabić">
+        <meta name="description" content="SEART, Software Institute (SI), USI">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+        <link rel="icon" href="icons/favicon.ico">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1/font/bootstrap-icons.min.css" integrity="sha384-XGjxtQfXaH2tnPFa9x+ruJTuLE3Aa6LhHSWRr1XeTyhezb4abCG4ccI5AkVDxqC+" crossorigin="anonymous">
+    </head>
+    <body class="min-vh-100 mw-100 d-flex flex-column justify-content-between">
+        <header>
+            <nav aria-label="navbar" class="navbar navbar-expand-sm bg-light">
+                <div class="container-fluid">
+                    <a href="https://seart.si.usi.ch" target="_blank" class="navbar-brand logo">
+                        <span class="logo-box">SE</span><span class="logo-text">ART</span>
+                    </a>
+                    <ul class="ms-none ms-sm-auto navbar-nav">
+                        <li class="nav-item">
+                            <a href="https://github.com/seart-group" target="_blank" class="nav-link" tabindex="-1">
+                                <i class="bi bi-github"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <main class="text-center">
+            <h1 class="display-1">{{ status }}</h1>
+            <h2>{{ title }}</h2>
+            <p>{{ message }}</p>
+        </main>
+        <footer></footer>
+    </body>
+</html>
