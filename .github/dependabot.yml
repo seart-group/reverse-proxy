@@ -14,3 +14,10 @@ updates:
     target-branch: master
     labels:
       - dependencies
+  - package-ecosystem: docker
+    directory: /
+    schedule:
+      interval: daily
+    target-branch: master
+    labels:
+      - dependencies
