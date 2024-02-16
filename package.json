@@ -4,7 +4,11 @@
   "version": "1.0.0",
   "description": "Configuration for our NGINX reverse proxy server",
   "main": "index.js",
+  "type": "module",
   "scripts": {
+    "lint": "npm-run-all lint:*",
+    "lint:js": "eslint index.js",
+    "lint:css": "stylelint html/css/*.css"
   },
   "author": {
     "name": "Ozren Dabić",
@@ -23,5 +27,10 @@
     "reverse proxy",
     "configuration",
     "error pages"
-  ]
+  ],
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "npm-run-all": "^4.1.5",
+    "stylelint": "^16.2.1"
+  }
 }
