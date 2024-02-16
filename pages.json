@@ -1,0 +1,27 @@
+[
+  {
+    "status": "404",
+    "title": "Not Found",
+    "message": "This page does not exist or has been removed."
+  },
+  {
+    "status": "500",
+    "title": "Internal Server Error",
+    "message": "An unexpected error occurred."
+  },
+  {
+    "status": "502",
+    "title": "Bad Gateway",
+    "message": "The server received an invalid response from an upstream server."
+  },
+  {
+    "status": "503",
+    "title": "Service Unavailable",
+    "message": "The server is temporarily unable to service your request due to maintenance downtime or capacity problems."
+  },
+  {
+    "status": "504",
+    "title": "Gateway Timeout",
+    "message": "The server did not receive a timely response from an upstream server it needed to access in order to complete the request."
+  }
+]
