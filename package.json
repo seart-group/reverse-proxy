@@ -3,6 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "description": "Configuration for our NGINX reverse proxy server",
+  "main": "index.js",
   "scripts": {
   },
   "author": {
