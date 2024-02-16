@@ -1,0 +1,26 @@
+{
+  "name": "reverse-proxy",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Configuration for our NGINX reverse proxy server",
+  "scripts": {
+  },
+  "author": {
+    "name": "Ozren Dabić",
+    "email": "ozren.dabic@usi.ch",
+    "url": "https://dabico.github.io"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seart-group/reverse-proxy.git"
+  },
+  "license": "MIT",
+  "homepage": "https://seart.si.usi.ch",
+  "keywords": [
+    "nginx",
+    "server",
+    "reverse proxy",
+    "configuration",
+    "error pages"
+  ]
+}
