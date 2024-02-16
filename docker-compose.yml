@@ -5,7 +5,7 @@ services:
 
   webserver:
     container_name: reverse-proxy
-    image: nginx:stable-alpine-slim
+    image: seart/reverse-proxy:latest
     restart: "always"
     ports:
       - "80:80"
