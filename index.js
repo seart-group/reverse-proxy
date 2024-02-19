@@ -1,9 +1,10 @@
 import * as fs from "fs/promises";
 import jsonfile from "jsonfile";
 import Handlebars from "handlebars";
-import {minify} from "html-minifier-terser";
+import { minify } from "html-minifier-terser";
 
-const template = await fs.readFile("template.hbs", "utf-8");
+const encoding = "utf-8";
+const template = await fs.readFile("template.hbs", encoding);
 const render = Handlebars.compile(template);
 const options = {
     minifyJS: true,
@@ -12,14 +13,21 @@ const options = {
     collapseWhitespace: true,
 };
 
+const minifyFile = async (content) => minify(content, options);
+const writeToFile = async (minified) => fs.writeFile("html/index.html", minified);
 const readJson = async () => jsonfile.readFile("pages.json");
 const createPages = async (pages) => {
     for (const page of pages) {
-        const content = await minify(render(page), options);
-        await fs.writeFile(`html/${page.status}.html`, content);
+        const content = render(page);
+        const minified = await minifyFile(content);
+        await fs.writeFile(`html/${page.status}.html`, minified);
     }
 };
 
-fs.mkdir("html", { recursive: true })
+await fs.mkdir("html", { recursive: true })
     .then(readJson)
     .then(createPages);
+
+await fs.readFile("index.html", encoding)
+    .then(minifyFile)
+    .then(writeToFile);
