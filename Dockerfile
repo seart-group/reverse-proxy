@@ -14,6 +14,8 @@ LABEL maintainer="Ozren Dabić (dabico@usi.ch)"
 
 ENV TZ=UTC
 
+RUN rm -rf /usr/share/nginx/html/*.html
+
 COPY --from=build /html /usr/share/nginx/html
 
 COPY default.conf /etc/nginx/conf.d/default.conf
