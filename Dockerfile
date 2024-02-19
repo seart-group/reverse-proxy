@@ -19,8 +19,10 @@ RUN rm -rf /usr/share/nginx/html/*.html
 COPY --from=build /html /usr/share/nginx/html
 
 COPY default.conf /etc/nginx/conf.d/default.conf
+COPY errors.conf /etc/nginx/conf.d/template/errors.conf
 
 VOLUME /etc/nginx/conf.d/include
+VOLUME /etc/nginx/conf.d/template
 
 HEALTHCHECK \
     --start-period=10s \
