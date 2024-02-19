@@ -22,3 +22,10 @@ COPY --from=build /html /usr/share/nginx/html
 COPY default.conf /etc/nginx/conf.d/default.conf
 
 VOLUME /etc/nginx/conf.d/include
+
+HEALTHCHECK \
+    --start-period=10s \
+    --interval=60s \
+    --timeout=30s \
+    --retries=5 \
+    CMD service nginx status || exit 1
