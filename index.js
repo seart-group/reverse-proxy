@@ -12,9 +12,14 @@ const options = {
     collapseWhitespace: true,
 };
 
-jsonfile.readFile("pages.json").then(pages => {
-    pages.forEach(async page => {
+const readJson = async () => jsonfile.readFile("pages.json");
+const createPages = async (pages) => {
+    for (const page of pages) {
         const content = await minify(render(page), options);
         await fs.writeFile(`html/${page.status}.html`, content);
-    });
-});
+    }
+};
+
+fs.mkdir("html", { recursive: true })
+    .then(readJson)
+    .then(createPages);
