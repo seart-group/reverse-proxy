@@ -44,7 +44,7 @@ As for the configuration files, they should be mounted to the `/etc/nginx/conf.d
 The following snippet shows how one might set up a reverse-proxy for another application running
 on the same network:
 
-```
+```nginx configuration
 # /etc/nginx/conf.d/include/example.conf
 
 server {
@@ -60,10 +60,17 @@ server {
   ssl_certificate /etc/nginx/ssl/example.com/cert.pem;
   ssl_certificate_key /etc/nginx/ssl/example.com/privkey.pem;
 
+  # Optionally, you can include location
+  # directives for custom error pages
+  include /etc/nginx/conf.d/template/errors.conf;
+
   location / {
     resolver 127.0.0.11 valid=30s;
     set $upstream example-front-end;
     proxy_pass http://$upstream:80;
+    # Error intercepting needs to be enabled
+    # if you want to use custom error pages
+    proxy_intercept_errors on;
   }
 
   location /api {
