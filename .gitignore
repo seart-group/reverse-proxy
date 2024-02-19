@@ -271,4 +271,4 @@ dist
 
 ### Project Specific template
 # General
-*.html
+html/*.html
