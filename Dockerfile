@@ -1,6 +1,7 @@
 FROM node:lts-alpine AS build
 
 COPY index.js          \
+     index.html        \
      pages.json        \
      template.hbs      \
      package.json      \
