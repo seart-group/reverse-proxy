@@ -22,5 +22,3 @@ COPY --from=build /html /usr/share/nginx/html
 COPY default.conf /etc/nginx/conf.d/default.conf
 
 VOLUME /etc/nginx/conf.d/include
-
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
