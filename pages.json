@@ -1,5 +1,20 @@
 [
   {
+    "status": "400",
+    "title": "Bad Request",
+    "message": "The request cannot be fulfilled due to client error."
+  },
+  {
+    "status": "401",
+    "title": "Unauthorized",
+    "message": "The request has not been applied because it lacks valid authentication credentials for the target resource."
+  },
+  {
+    "status": "403",
+    "title": "Forbidden",
+    "message": "The server understood the request, but is refusing to fulfill it."
+  },
+  {
     "status": "404",
     "title": "Not Found",
     "message": "This page does not exist or has been removed."
@@ -8,6 +23,11 @@
     "status": "500",
     "title": "Internal Server Error",
     "message": "An unexpected error occurred."
+  },
+  {
+    "status": "501",
+    "title": "Not Implemented",
+    "message": "The server does not support the functionality required to fulfill the request."
   },
   {
     "status": "502",
