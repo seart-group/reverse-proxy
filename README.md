@@ -1,9 +1,13 @@
 # SEART reverse-proxy
 
+## About
+
 To coordinate traffic to our web services, we make use of a custom NGINX web-server, acting as a reverse-proxy.
 Said server comes bundled with a default configuration file, which can be further customized by placing additional
 configuration files in a pre-determined directory. It includes other features such as a pre-defined Docker health
 check and custom error pages that maintain stylistic consistency with the rest of our web services. 
+
+## Example
 
 Here's an example of how one could deploy this proxy through `docker-compose`:
 
@@ -82,3 +86,9 @@ server {
   }
 }
 ```
+
+## Gallery
+
+| ![index](screenshots/index.jpg) | ![error](screenshots/error.jpg) |
+|:-------------------------------:|:-------------------------------:|
+|           Index Page            |           Error Page            |
