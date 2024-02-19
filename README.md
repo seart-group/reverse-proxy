@@ -1,26 +1,77 @@
 # SEART reverse-proxy
 
-To coordinate traffic to our web services, we make use of an NGINX web-server, acting as a reverse-proxy.
-The reverse-proxy efficiently handles incoming HTTP requests, forwarding them to the appropriate backend services based on predefined rules.
-Configuration and management of the reverse-proxy is handled via `docker-compose`.
+To coordinate traffic to our web services, we make use of a custom NGINX web-server, acting as a reverse-proxy.
+Said server comes bundled with a default configuration file, which can be further customized by placing additional
+configuration files in a pre-determined directory. It includes other features such as a pre-defined Docker health
+check and custom error pages that maintain stylistic consistency with the rest of our web services. 
 
-Before deploying the project for the first time, make sure that a dedicated `docker` network exists:
+Here's an example of how one could deploy this proxy through `docker-compose`:
 
-```bash
-docker network create reverse-proxy-network
+```yaml
+version: '3.9'
+name: 'reverse-proxy'
+
+services:
+
+  proxy:
+    container_name: reverse-proxy
+    image: seart/reverse-proxy:latest
+    restart: "always"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      # bind your custom configuration files
+      # to the image-specific config directory
+      - ./config:/etc/nginx/conf.d/include
+      # bind your custom SSL certificates
+      # as defined by your configuration files
+      - ./ssl:/etc/nginx/ssl
+      # path to bind NGINX log files
+      - ./logs:/var/log/nginx
+    networks:
+      - reverse-proxy-network
+
+# Use an external network to ensure that
+# if the reverse-proxy is taken down, the
+# network is still available to other services
+networks:
+  reverse-proxy-network:
+    external: true
 ```
 
-Then copy the certbot-issued SSL certificates to the bind mount folder using the provided script:
+As for the configuration files, they should be mounted to the `/etc/nginx/conf.d/include` directory.
+The following snippet shows how one might set up a reverse-proxy for another application running
+on the same network:
 
-```bash
-./letsencrypt.sh
 ```
+# /etc/nginx/conf.d/include/example.conf
 
----   
+server {
+  listen 80;
+  server_name example.com www.example.com;
+  return 301 https://$server_addr$request_uri;
+}
 
-### References
+server {
+  listen 443 ssl;
+  server_name example.com www.example.com;
 
-1. [Using Docker to Set up Nginx Reverse Proxy With Auto SSL Generation](https://linuxhandbook.com/nginx-reverse-proxy-docker)
-2. [Let nginx start if upstream host is unavailable or down](https://sandro-keil.de/blog/let-nginx-start-if-upstream-host-is-unavailable-or-down)
-3. [Setup nginx not to crash if host in upstream is not found](https://stackoverflow.com/a/32846603/17173324)
-4. [TLS handshake failed when using TLS1.3](https://github.com/spring-cloud/spring-cloud-gateway/issues/2332)
+  ssl_certificate /etc/nginx/ssl/example.com/cert.pem;
+  ssl_certificate_key /etc/nginx/ssl/example.com/privkey.pem;
+
+  location / {
+    resolver 127.0.0.11 valid=30s;
+    set $upstream example-front-end;
+    proxy_pass http://$upstream:80;
+  }
+
+  location /api {
+    resolver 127.0.0.11 valid=30s;
+    set $upstream example-back-end;
+    proxy_pass http://$upstream:8080;
+    proxy_set_header Host $http_host;
+    proxy_set_header X-Forwarded-Proto https;
+  }
+}
+```
