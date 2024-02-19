@@ -1,8 +1,5 @@
 FROM node:lts-alpine AS build
 
-WORKDIR /
-
-COPY html html/
 COPY index.js          \
      pages.json        \
      template.hbs      \
