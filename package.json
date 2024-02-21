@@ -28,9 +28,16 @@
   "keywords": [
     "nginx",
     "server",
+    "web server",
+    "proxy server",
     "reverse proxy",
     "configuration",
-    "error pages"
+    "error handling",
+    "custom pages",
+    "error pages",
+    "templating",
+    "handlebars",
+    "bootstrap"
   ],
   "devDependencies": {
     "eslint": "^8.56.0",
