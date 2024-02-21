@@ -2,7 +2,7 @@
   "name": "reverse-proxy",
   "private": true,
   "version": "1.0.0",
-  "description": "Configuration for our NGINX reverse proxy server",
+  "description": "NGINX reverse-proxy starter, tailor-made for our organisation",
   "main": "index.js",
   "type": "module",
   "scripts": {
