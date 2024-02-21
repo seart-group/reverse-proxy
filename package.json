@@ -20,6 +20,9 @@
     "type": "git",
     "url": "git+https://github.com/seart-group/reverse-proxy.git"
   },
+  "bugs": {
+    "url": "https://github.com/seart-group/reverse-proxy/issues"
+  },
   "license": "MIT",
   "homepage": "https://seart.si.usi.ch",
   "keywords": [
