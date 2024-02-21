@@ -35,7 +35,7 @@ jobs:
         with:
           push: true
           tags: |
-            seart/${{ steps.meta.outputs.repo_name }}:latest
-            seart/${{ steps.meta.outputs.repo_name }}:${{ steps.meta.outputs.tag-major }}
-            seart/${{ steps.meta.outputs.repo_name }}:${{ steps.meta.outputs.tag-minor }}
-            seart/${{ steps.meta.outputs.repo_name }}:${{ steps.meta.outputs.tag-patch }}
+            seart/${{ steps.meta.outputs.repo-name }}:latest
+            seart/${{ steps.meta.outputs.repo-name }}:${{ steps.meta.outputs.tag-major }}
+            seart/${{ steps.meta.outputs.repo-name }}:${{ steps.meta.outputs.tag-minor }}
+            seart/${{ steps.meta.outputs.repo-name }}:${{ steps.meta.outputs.tag-patch }}
