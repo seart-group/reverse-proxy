@@ -1,5 +1,7 @@
 FROM node:lts-alpine AS build
 
+WORKDIR /
+
 COPY index.js          \
      index.html        \
      pages.json        \
