@@ -61,6 +61,16 @@
             .logo:hover .logo-text {
                 color: var(--bs-navbar-hover-color)!important;
             }
+
+            .action {
+                text-decoration: none!important;
+                color: rgba(var(--bs-emphasis-color-rgb), 0.65)!important;
+                cursor: pointer!important;
+            }
+
+            .action:hover {
+                color: rgba(var(--bs-emphasis-color-rgb), 0.8)!important;
+            }
         </style>
     </head>
     <body class="min-vh-100 mw-100 d-flex flex-column justify-content-between">
@@ -86,23 +96,17 @@
                 If you see this page, the NGINX web server is up and running.
                 Further configuration is required. For more information refer to:
             </p>
-            <div class="container">
+            <div class="container justify-content-center">
                 <div class="row">
-                    <div class="col">
-                        <div class="list-group">
-                            <a href="https://nginx.org"
-                               target="_blank"
-                               class="list-group-item list-group-item-action"
-                            >
-                                Official NGINX Documentation
-                            </a>
-                            <a href="https://github.com/seart-group/reverse-proxy"
-                               target="_blank"
-                               class="list-group-item list-group-item-action"
-                            >
-                                Reverse Proxy Repository
-                            </a>
-                        </div>
+                    <div class="col-12 col-md-6 text-center text-md-end">
+                        <a href="https://nginx.org" target="_blank" class="action">
+                            <i class="bi bi-file-earmark-richtext-fill"></i> NGINX Documentation
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-6 text-center text-md-start">
+                        <a href="https://github.com/seart-group/reverse-proxy" target="_blank" class="action">
+                            <i class="bi bi-file-earmark-code-fill"></i> Project Source Code
+                        </a>
                     </div>
                 </div>
             </div>
