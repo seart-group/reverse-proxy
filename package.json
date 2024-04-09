@@ -6,7 +6,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "lint": "npm-run-all lint:*",
+    "lint": "npm-run-all --parallel lint:*",
     "lint:js": "eslint .",
     "lint:md": "markdownlint *.md",
     "lint:html": "htmlhint template.hbs",
