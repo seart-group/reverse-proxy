@@ -7,7 +7,7 @@
   "type": "module",
   "scripts": {
     "lint": "npm-run-all lint:*",
-    "lint:js": "eslint index.js",
+    "lint:js": "eslint .",
     "lint:html": "htmlhint template.hbs",
     "dev": "nodemon --exec 'node .' -e hbs,html --ignore 'html/'"
   },
