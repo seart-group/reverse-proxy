@@ -1,14 +1,12 @@
 FROM node:lts-alpine AS build
 
-WORKDIR /
-
 COPY index.js          \
      index.html        \
      pages.json        \
      template.hbs      \
      package.json      \
      package-lock.json \
-     ./
+     /
 
 RUN npm ci --quiet --omit=dev && node .
 
