@@ -43,7 +43,7 @@
   "devDependencies": {
     "@eslint/js": "^9.17.0",
     "eslint": "^9.16.0",
-    "globals": "^15.13.0",
+    "globals": "^15.14.0",
     "htmlhint": "^1.1.4",
     "markdownlint-cli": "^0.43.0",
     "nodemon": "^3.1.9",
