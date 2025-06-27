@@ -41,7 +41,7 @@
     "bootstrap"
   ],
   "devDependencies": {
-    "@eslint/js": "^9.29.0",
+    "@eslint/js": "^9.30.0",
     "eslint": "^9.29.0",
     "globals": "^16.2.0",
     "htmlhint": "^1.6.3",
