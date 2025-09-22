@@ -21,6 +21,6 @@ jobs:
       - name: Lint source files
         run: npm run lint
       - name: Lint docker file
-        uses: hadolint/hadolint-action@v3.2.0
+        uses: hadolint/hadolint-action@v3.3.0
         with:
           recursive: true
