@@ -18,7 +18,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - id: meta
         name: Extract metadata for Docker
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const name = context.repo.repo
