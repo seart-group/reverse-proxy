@@ -10,7 +10,7 @@ COPY index.js          \
 
 RUN npm ci --quiet --omit=dev && node .
 
-FROM nginx:1.29.4-alpine-slim
+FROM nginx:1.29.7-alpine-slim
 LABEL maintainer="Ozren Dabić (dabico@usi.ch)"
 
 ENV TZ=UTC
